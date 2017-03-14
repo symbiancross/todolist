@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12n">
+			<div class="col-lg-12">
 				<h1>ToDo List</h1>
 				<ol>
 					@foreach($todo as $td)
