@@ -3,16 +3,26 @@
 <head>
 	<title>ToDo List</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12n">
 				<h1>ToDo List</h1>
 				<ol>
 					@foreach($todo as $td)
-					<li>{{ $td->item }}</li>
+					<li>
+						<form action="{{ url('todo/'.$td->id_todo) }}" method="POST">
+							{{ $td->item }}
+							{{ method_field('DELETE') }}
+							{{ csrf_field() }}
+							<button type="submit" class="btn btn-danger">
+		                    	<i class="fa fa-trash"></i> Delete
+		                    </button>	
+	                    </form>
+					</li>
 					@endforeach
 				</ol>
 				<form action="todo" method="POST">
